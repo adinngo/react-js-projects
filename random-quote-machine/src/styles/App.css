@@ -1,0 +1,13 @@
+#root {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+#quote-box {
+  border-radius: 3px;
+  max-width: 450px;
+  padding: 40px 50px;
+  background-color: #fff;
+}

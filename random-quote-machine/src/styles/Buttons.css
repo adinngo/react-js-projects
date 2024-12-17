@@ -1,0 +1,18 @@
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  
+}
+.button {
+  border: none;
+  padding: 8px 16px;
+  background-color: black;
+  cursor: pointer;
+  color: white;
+  border-radius: 3px;
+}
+#tweet-quote {
+  margin-right: 5px;
+}
