@@ -1,13 +1,27 @@
+:root {
+  box-sizing: border-box;
+}
+
 #root {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: black;
+  
 }
 #quote-box {
   border-radius: 3px;
   max-width: 450px;
   padding: 40px 50px;
   background-color: #fff;
+}
+
+@media screen and (max-width: 425px) {
+  #root {
+    padding: 10px;
+  }
+  h2 {
+    font-size: 20px;
+  }
 }
