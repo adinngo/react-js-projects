@@ -78,7 +78,15 @@ function App() {
     <div id="quote-box">
       <Text text={quote.text} />
       <Author author={quote.author} />
-      <Buttons handleClick={handleClick} />
+      <Buttons 
+        handleClick={handleClick} 
+        data={
+          {
+            author: quote.author,
+            text: quote.text
+          }
+        }
+      />
     </div>
   );
 }

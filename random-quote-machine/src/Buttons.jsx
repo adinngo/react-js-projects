@@ -20,17 +20,17 @@ function ChangeQuoteButton({ handleClick }) {
   );
 }
 
-function Buttons({ handleClick }) {
+function Buttons({ handleClick, data }) {
   return (
     <div className="buttons">
       <div>
         <LinkButton
           icon={<i className="bx bxl-twitter"></i>}
           data={{
-            href: "",
+            href: `https://x.com/intent/post?hashtags=quote&text="${data.text}" ${data.author}`,
             id: "tweet-quote",
             title: "Tweet this quote!",
-            className: "button"
+            className: "button",
           }}
         />
         <LinkButton
@@ -39,7 +39,7 @@ function Buttons({ handleClick }) {
             href: "",
             id: "tumblr-quote",
             title: "Post this quote on tumblr!",
-            className: "button"
+            className: "button",
           }}
         />
       </div>
