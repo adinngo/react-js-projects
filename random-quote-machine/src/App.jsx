@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import Text from './Text';
-import Author from './Author';
-import Buttons from './Buttons';
-import './styles/App.css'
+import { useEffect, useState } from "react";
+import Text from "./Text";
+import Author from "./Author";
+import Buttons from "./Buttons";
+import "./styles/App.css";
 
 const quotes = [
   {
@@ -11,8 +11,7 @@ const quotes = [
     color: "#73A857",
   },
   {
-    text:
-      "When I was 5 years old, my mother always told me that happiness was the key to life. When I went to school, they asked me what I wanted to be when I grew up. I wrote down ‘happy’. They told me I didn’t understand the assignment, and I told them they didn’t understand life.",
+    text: "When I was 5 years old, my mother always told me that happiness was the key to life. When I went to school, they asked me what I wanted to be when I grew up. I wrote down ‘happy’. They told me I didn’t understand the assignment, and I told them they didn’t understand life.",
     author: "John Lennon",
     color: "#E74C3C",
   },
@@ -29,7 +28,7 @@ const quotes = [
   {
     text: "We must balance conspicuous consumption with conscious capitalism.",
     author: "Kevin Kruse",
-    color: "#27AE60",
+    color: "#2C3E50",
   },
 ];
 function getRandomNumber(length) {
@@ -37,28 +36,51 @@ function getRandomNumber(length) {
   return randomNumber;
 }
 function App() {
-
   const [quote, setQuote] = useState(() => {
     const randomNumber = getRandomNumber(quotes.length);
     return quotes[randomNumber];
-  })
+  });
+
+  useEffect(() => {
+    const root = document.getElementById("root");
+
+    const text = document.getElementById("text");
+
+    const author = document.getElementById("author");
+
+    const color = quote.color;
+
+    const fadeEnterActive = "fade-enter-active";
+    root.style.backgroundColor = color;
+    root.style.color = color;
+
+    document.querySelectorAll(".button").forEach((button) => {
+      button.style.backgroundColor = color;
+    });
+
+    //make context appear delay a little bit
+    text.classList.remove(fadeEnterActive);
+    author.classList.remove(fadeEnterActive);
+    setTimeout(() => {
+      text.classList.add(fadeEnterActive);
+      author.classList.add(fadeEnterActive);
+    },0)
+  });
 
   const handleClick = () => {
-    setQuote(() => {
+    setQuote(() => {  
       const randomNumber = getRandomNumber(quotes.length);
       return quotes[randomNumber];
-    })
-  }
+    });
+  };
 
-
-  console.log(quote)
   return (
     <div id="quote-box">
-      <Text text={quote.text}/>
-      <Author author={quote.author}/>
-      <Buttons handleClick={handleClick}/>
+      <Text text={quote.text} />
+      <Author author={quote.author} />
+      <Buttons handleClick={handleClick} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

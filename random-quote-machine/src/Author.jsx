@@ -1,9 +1,9 @@
 function Author({author}) {
   return (
-    <div id="author">
-      <p style={{textAlign: "right"}}> -{author}</p>
+    <div id="author" className="fade-enter">
+      <p style={{ textAlign: "right" }}> -{author}</p>
     </div>
-  )
+  );
 }
 
 

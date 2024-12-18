@@ -1,7 +1,9 @@
 :root {
   box-sizing: border-box;
 }
-
+body {
+  margin: 0;
+}
 #root {
   height: 100vh;
   display: flex;
@@ -15,6 +17,14 @@
   max-width: 450px;
   padding: 40px 50px;
   background-color: #fff;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active{
+  opacity: 1;
+  transition: opacity 3000ms ease-in;
 }
 
 @media screen and (max-width: 425px) {
