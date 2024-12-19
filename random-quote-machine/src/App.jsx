@@ -61,10 +61,15 @@ function App() {
     //make context appear delay a little bit
     text.classList.remove(fadeEnterActive);
     author.classList.remove(fadeEnterActive);
-    setTimeout(() => {
+
+    const idTimeOut =setTimeout(() => {
       text.classList.add(fadeEnterActive);
       author.classList.add(fadeEnterActive);
     },0)
+
+    return () => {
+      clearTimeout(idTimeOut);
+    }
   });
 
   const handleClick = () => {
